@@ -1,25 +1,53 @@
 # Profile Intelligence API
 
 ## Overview
-This API builds enriched user profiles using multiple external APIs and stores them in a database.
+
+The Profile Intelligence API is a backend system that generates enriched user profiles using multiple external APIs. It processes and stores structured demographic data including gender, age, and nationality.
+
+The system demonstrates:
+- Multi-API integration
+- Data processing and transformation
+- Database persistence
+- RESTful API design
+- Idempotent behavior (duplicate prevention)
+
+
+## Live API
+
+https://profile-intelligence-api-production-5e85.up.railway.app/
+
+
+## GitHub Repository
+
+https://github.com/Prince-Magami/Profile-Intelligence-Api.git
+
+
+## External APIs Used
+
+This project integrates the following free APIs:
+
+- Genderize API → https://api.genderize.io
+- Agify API → https://api.agify.io
+- Nationalize API → https://api.nationalize.io
+
 
 ## Features
-- Multi API integration (Genderize, Agify, Nationalize)
-- Data persistence with MongoDB
-- Idempotency (no duplicate profiles)
-- Filtering system
-- Full CRUD support
 
-## Endpoints
+- Create enriched user profiles from a name
+- Stores profile data in MongoDB
+- Prevents duplicate entries (idempotency)
+- Retrieves single or multiple profiles
+- Supports filtering by gender, country, and age group
+- Deletes profiles by ID
 
-### POST /api/profiles
-Create a profile
+## API Endpoints
 
-### GET /api/profiles/:id
-Get single profile
+### 1. Create Profile
 
-### GET /api/profiles
-Get all profiles (with filters)
+**POST** `/api/profiles`
 
-### DELETE /api/profiles/:id
-Delete profile
+Request Body:
+```json
+{
+  "name": "ella"
+}
